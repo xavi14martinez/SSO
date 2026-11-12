@@ -1,0 +1,105 @@
+:root {
+  color-scheme: light;
+  --paper: #f3efe6;
+  --ink: #1d2430;
+  --muted: #5c6570;
+  --line: #d9d0c3;
+  --green: #0e5c4a;
+  --green-dark: #094236;
+  --error: #8c2f39;
+  --panel: #fffdf8;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: "Avenir Next", "Segoe UI", sans-serif;
+  line-height: 1.5;
+}
+
+.skip {
+  position: absolute;
+  left: 1rem;
+  top: -3rem;
+  background: var(--ink);
+  color: white;
+  padding: 0.5rem 0.75rem;
+}
+
+.skip:focus { top: 1rem; }
+
+.bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+  padding: 1rem 1.5rem;
+  border-bottom: 1px solid var(--line);
+}
+
+.mark {
+  margin: 0;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+}
+
+.sesion {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.nombre { margin: 0; color: var(--muted); }
+
+.panel {
+  width: min(42rem, calc(100% - 2rem));
+  margin: 2rem auto 3rem;
+  background: var(--panel);
+  border: 1px solid var(--line);
+  padding: 1.5rem;
+}
+
+h1 { font-size: 1.8rem; line-height: 1.2; margin: 0 0 0.75rem; }
+h2 { font-size: 1.15rem; margin: 1.5rem 0 0.5rem; }
+
+a { color: var(--green-dark); }
+a:focus-visible, button:focus-visible {
+  outline: 2px solid var(--green);
+  outline-offset: 3px;
+}
+
+.boton, button {
+  display: inline-block;
+  min-height: 44px;
+  border: 0;
+  border-radius: 4px;
+  background: var(--green);
+  color: white;
+  padding: 0.55rem 0.9rem;
+  font: inherit;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.boton:hover, button:hover { background: var(--green-dark); }
+
+.error {
+  margin: 1rem 0;
+  padding: 0.75rem 0.9rem;
+  border-left: 4px solid var(--error);
+  background: #f8ecec;
+  color: var(--error);
+}
+
+.lista { list-style: none; padding: 0; margin: 0; }
+.lista li {
+  display: grid;
+  gap: 0.2rem;
+  padding: 0.8rem 0;
+  border-top: 1px solid var(--line);
+}
+.lista span { color: var(--muted); }

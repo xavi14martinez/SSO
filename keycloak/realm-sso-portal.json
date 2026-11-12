@@ -1,0 +1,116 @@
+{
+  "id": "sso-portal",
+  "realm": "sso-portal",
+  "displayName": "Portal SSO",
+  "enabled": true,
+  "sslRequired": "external",
+  "registrationAllowed": false,
+  "loginWithEmailAllowed": true,
+  "duplicateEmailsAllowed": false,
+  "resetPasswordAllowed": false,
+  "editUsernameAllowed": false,
+  "bruteForceProtected": true,
+  "accessTokenLifespan": 300,
+  "ssoSessionIdleTimeout": 1800,
+  "ssoSessionMaxLifespan": 36000,
+  "roles": {
+    "realm": [
+      {
+        "name": "user",
+        "description": "Puede consultar los avisos internos"
+      },
+      {
+        "name": "admin",
+        "description": "Puede consultar los avisos internos y el directorio"
+      }
+    ]
+  },
+  "clients": [
+    {
+      "clientId": "portal-web",
+      "name": "Portal web",
+      "enabled": true,
+      "protocol": "openid-connect",
+      "publicClient": false,
+      "secret": "dev-only-portal-secret",
+      "standardFlowEnabled": true,
+      "implicitFlowEnabled": false,
+      "directAccessGrantsEnabled": false,
+      "serviceAccountsEnabled": false,
+      "frontchannelLogout": true,
+      "fullScopeAllowed": true,
+      "redirectUris": ["http://localhost:3000/callback"],
+      "webOrigins": ["http://localhost:3000"],
+      "attributes": {
+        "pkce.code.challenge.method": "S256",
+        "post.logout.redirect.uris": "http://localhost:3000##http://localhost:3000/"
+      }
+    }
+  ],
+  "users": [
+    {
+      "username": "belenArellano",
+      "enabled": true,
+      "email": "belenArellano@example.com",
+      "emailVerified": true,
+      "firstName": "Belen",
+      "lastName": "Arellano",
+      "credentials": [
+        {
+          "type": "password",
+          "value": "belenArellano",
+          "temporary": false
+        }
+      ],
+      "realmRoles": ["user"]
+    },
+    {
+      "username": "davidValentin",
+      "enabled": true,
+      "email": "davidValentin@example.com",
+      "emailVerified": true,
+      "firstName": "David",
+      "lastName": "Valentin",
+      "credentials": [
+        {
+          "type": "password",
+          "value": "davidValentin",
+          "temporary": false
+        }
+      ],
+      "realmRoles": ["user"]
+    },
+    {
+      "username": "miguelGuerrero",
+      "enabled": true,
+      "email": "miguelGuerrero@example.com",
+      "emailVerified": true,
+      "firstName": "Miguel",
+      "lastName": "Guerrero",
+      "credentials": [
+        {
+          "type": "password",
+          "value": "miguelGuerrero",
+          "temporary": false
+        }
+      ],
+      "realmRoles": ["admin"]
+    },
+    {
+      "username": "xaviMartinez",
+      "enabled": true,
+      "email": "xaviMartinez@example.com",
+      "emailVerified": true,
+      "firstName": "Xavi",
+      "lastName": "Martinez",
+      "credentials": [
+        {
+          "type": "password",
+          "value": "xaviMartinez",
+          "temporary": false
+        }
+      ],
+      "realmRoles": ["admin"]
+    }
+  ]
+}

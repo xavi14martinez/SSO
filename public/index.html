@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Portal interno</title>
+  <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+  <a class="skip" href="#contenido">Saltar al contenido</a>
+  <header class="bar">
+    <p class="mark">Portal interno</p>
+    <div id="sesion" class="sesion"></div>
+  </header>
+  <main id="contenido" class="panel">
+    <h1>Avisos y accesos del equipo</h1>
+    <p id="intro">Identifícate para ver los avisos. La zona de administración solo está disponible para el perfil de administración.</p>
+    <p id="error" class="error" hidden></p>
+
+    <section aria-labelledby="titulo-publico">
+      <h2 id="titulo-publico">Información general</h2>
+      <ul id="avisos-publicos" class="lista"></ul>
+    </section>
+
+    <section id="zona-usuario" hidden aria-labelledby="titulo-avisos">
+      <h2 id="titulo-avisos">Avisos del equipo</h2>
+      <ul id="avisos" class="lista"></ul>
+      <p><a href="/admin">Abrir la zona de administración</a></p>
+    </section>
+
+    <section id="zona-admin" hidden aria-labelledby="titulo-admin">
+      <h2 id="titulo-admin">Directorio</h2>
+      <p>Estas fichas solo se obtienen si el servidor reconoce el perfil de administración.</p>
+      <ul id="usuarios" class="lista"></ul>
+    </section>
+  </main>
+  <script src="/app.js"></script>
+</body>
+</html>
