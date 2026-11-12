@@ -41,6 +41,7 @@ async function cargarPortal() {
   if (avisos.ok) {
     const datos = await avisos.json()
     zonaUsuario.hidden = false
+    document.querySelector('#enlace-admin').hidden = perfil.roles.includes('admin')
     pintarLista(document.querySelector('#avisos'), datos.avisos)
   }
 

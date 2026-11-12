@@ -9,7 +9,7 @@ export const publicNotices = [
 export const avisos = [
   {
     id: 'aviso-1',
-    titulo: 'Bienvenida',
+    titulo: 'Bienvenido/a',
     texto: 'Este espacio reúne los avisos del equipo. Tu perfil determina qué más puedes consultar.',
   },
 ]

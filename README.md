@@ -15,12 +15,14 @@ npm install
 npm start
 ```
 
-Keycloak queda en `http://localhost:8080` y el portal en `http://localhost:3000`. La consola de administración usa `admin` / `admin` (`http://localhost:8080`). Esos datos, el secreto del cliente y las contraseñas de los usuarios de prueba solo sirven para desarrollo.
+Keycloak queda en `http://localhost:8080` y el portal en `http://localhost:3000`. La consola de Keycloak usa `admin` / `admin` (`http://localhost:8080`). Esa cuenta no entra en el portal. El secreto del cliente y las contraseñas siguientes solo sirven para desarrollo.
 
 | Usuario | Contraseña | Perfil |
 | --- | --- | --- |
-| `usuario` | `usuario` | `user`: avisos del equipo |
-| `admin` | `admin` | `admin`: avisos y directorio |
+| `belenArellano` | `belenArellano` | `user`: avisos del equipo |
+| `davidValentin` | `davidValentin` | `user`: avisos del equipo |
+| `miguelGuerrero` | `miguelGuerrero` | `admin`: avisos y directorio |
+| `xaviMartinez` | `xaviMartinez` | `admin`: avisos y directorio |
 
 El secreto `dev-only-portal-secret` está en `.env` porque lo usa el backend, y también en `keycloak/realm-sso-portal.json` porque Keycloak importa el realm desde ese fichero. Si se cambia uno, hay que cambiar el otro.
 
@@ -29,8 +31,8 @@ La aplicación se ejecuta en el host, no dentro de Compose. Así el navegador y 
 ## Qué comprobar
 
 - Sin sesión, `/app` redirige a `/login` y desde ahí a Keycloak. `/api/avisos` responde 401.
-- `usuario` ve los avisos. `/api/admin/usuarios` y `/admin` responden 403 aunque se ocultara la sección en la página.
-- `admin` ve los avisos y el directorio.
+- `belenArellano` y `davidValentin` ven los avisos y un enlace a la zona de administración. `/api/admin/usuarios` y `/admin` responden 403.
+- `miguelGuerrero` y `xaviMartinez` ven los avisos y el directorio. El enlace a la zona de administración no se muestra, porque esa información ya está en la página.
 - Cerrar sesión termina la sesión del portal y la de Keycloak.
 - Con Keycloak parado (`docker compose stop`), Identificarse muestra el aviso de proveedor no disponible y no se crea sesión.
 
